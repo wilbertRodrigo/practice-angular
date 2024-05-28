@@ -1,0 +1,9 @@
+<div id="search-component">
+  <label for="search-box"> Search Employee</label>
+  <input
+    #searchBox
+    id="search-box"
+    [(ngModel)]="enteredSearchValue"
+    (input)="onSearchTextChanged()"
+  />
+</div>

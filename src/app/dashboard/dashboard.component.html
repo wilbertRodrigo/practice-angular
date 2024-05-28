@@ -1,0 +1,14 @@
+<!-- <h4>
+  Database Management is fundamental for efficient, secure, and reliable data
+  management. It offers numerous advantages, including ensuring data integrity,
+  providing robust security, enabling efficient data management, supporting
+  concurrent access, and facilitating scalability and flexibility. These
+  benefits collectively enhance the overall performance and effectiveness of
+  data management in any organization, making a DBMS an indispensable tool in
+  today's data-driven world.
+</h4> -->
+<div class="users-menu text-red-600">
+  <a *ngFor="let user of users" routerLink="/detail/{{ user.id }}">
+    {{ user.name }}
+  </a>
+</div>

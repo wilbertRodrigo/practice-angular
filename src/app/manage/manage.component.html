@@ -1,0 +1,35 @@
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Employee Name</th>
+        <th>Employee Username</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.username }}</td>
+      <td class="flex justify-around">
+        <button
+          [class.selected]="user === selectedUser"
+          type="button"
+          (click)="onSelect(user)"
+        >
+          <a routerLink="/detail/{{ user.id }}"> View</a>
+        </button>
+        <button class="delete" type="button" class="delete" (click)="save()">
+          Edit
+        </button>
+        <button
+          class="delete"
+          type="button"
+          class="delete"
+          (click)="delete(user)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

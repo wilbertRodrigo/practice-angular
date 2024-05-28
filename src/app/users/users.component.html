@@ -1,0 +1,48 @@
+<form #userForm="ngForm" (ngSubmit)="onSubmit(name.value, username.value)">
+  <div class="add-hero-container">
+    <label for="name">User</label>
+    <input id="name" name="name" #name="ngModel" ngModel required />
+    <div *ngIf="name.invalid && name.touched" class="error">
+      Name is required.
+    </div>
+
+    <label for="username">Username</label>
+    <input id="username" name="username" #username="ngModel" ngModel required />
+    <div *ngIf="username.invalid && username.touched" class="error">
+      Username is required.
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="!userForm.form.valid"
+    >
+      Submit
+    </button>
+  </div>
+</form>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Employee Name</th>
+        <th>Employee Username</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.username }}</td>
+      <td class="flex justify-around">
+        <button
+          [class.selected]="user === selectedUser"
+          type="button"
+          (click)="onSelect(user)"
+        >
+          <a routerLink="/detail/{{ user.id }}"> View</a>
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
